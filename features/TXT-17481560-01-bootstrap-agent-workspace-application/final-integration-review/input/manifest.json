@@ -1,0 +1,119 @@
+{
+  "base_commit": "a83f44eff875ffd939b425aa6a68e8a9c53845e7",
+  "bundle_bytes": 357505,
+  "changed_files": [
+    ".github/workflows/ci.yml",
+    ".gitignore",
+    ".nvmrc",
+    "README.md",
+    "apps/api/.oxlintrc.json",
+    "apps/api/package.json",
+    "apps/api/src/app.ts",
+    "apps/api/src/server.ts",
+    "apps/api/test/ci-workflow.test.ts",
+    "apps/api/test/health.test.ts",
+    "apps/api/tsconfig.build.json",
+    "apps/api/tsconfig.json",
+    "apps/web/.env.example",
+    "apps/web/index.html",
+    "apps/web/package-lock.json",
+    "apps/web/package.json",
+    "apps/web/src/app.test.tsx",
+    "apps/web/src/components/api-status.tsx",
+    "apps/web/src/components/layout.tsx",
+    "apps/web/src/lib/api.test.ts",
+    "apps/web/src/lib/api.ts",
+    "apps/web/vite.config.ts",
+    "package-lock.json",
+    "package.json"
+  ],
+  "chaos_fix_commits": [],
+  "context_files_skipped": [],
+  "cross_task_lifecycle_candidates": [
+    "T-01 and T-02 are connected via depends_on and both touch files under ['agent-workspace']",
+    "T-01 and T-03 are connected via depends_on and both touch files under ['agent-workspace', 'agent-workspace/apps/api/test']",
+    "T-02 and T-03 are connected via depends_on and both touch files under ['agent-workspace']"
+  ],
+  "diff_truncated": false,
+  "excluded_diff_lines": 0,
+  "feature_id": "TXT-17481560",
+  "final_commit": "a44c17351668f9e0ae04a56b60c93bdc6f2b28e2",
+  "included_diff_lines": 11078,
+  "omitted_anchors": [],
+  "review_fix_commits": [],
+  "shared_code_candidates": [
+    "ApiStatus defined in apps/web/src/components/api-status.tsx, referenced from apps/web/src/app.test.tsx outside the owning task's file set",
+    "apiBaseUrl defined in apps/web/src/lib/api.ts, referenced from apps/web/src/lib/api.test.ts outside the owning task's file set",
+    "buildApp defined in apps/api/src/app.ts, referenced from apps/api/src/server.ts outside the owning task's file set",
+    "fetchHealth defined in apps/web/src/lib/api.ts, referenced from apps/web/src/components/api-status.tsx outside the owning task's file set",
+    "mockFetch defined in apps/web/src/app.test.tsx, referenced from apps/web/src/lib/api.test.ts outside the owning task's file set",
+    "track defined in apps/api/test/health.test.ts, referenced from apps/api/test/ci-workflow.test.ts outside the owning task's file set"
+  ],
+  "task_to_file_mapping": {
+    "T-01": [
+      "agent-workspace/package.json",
+      "agent-workspace/.nvmrc",
+      "agent-workspace/.gitignore",
+      "agent-workspace/apps/api/package.json",
+      "agent-workspace/apps/api/tsconfig.json",
+      "agent-workspace/apps/api/tsconfig.build.json",
+      "agent-workspace/apps/api/.oxlintrc.json",
+      "agent-workspace/apps/api/src/app.ts",
+      "agent-workspace/apps/api/src/server.ts",
+      "agent-workspace/apps/api/test/health.test.ts"
+    ],
+    "T-02": [
+      "agent-workspace/package-lock.json",
+      "agent-workspace/apps/web/package-lock.json",
+      "agent-workspace/apps/web/package.json",
+      "agent-workspace/apps/web/vite.config.ts",
+      "agent-workspace/apps/web/index.html",
+      "agent-workspace/apps/web/.env.example",
+      "agent-workspace/apps/web/src/lib/api.ts",
+      "agent-workspace/apps/web/src/components/api-status.tsx",
+      "agent-workspace/apps/web/src/components/layout.tsx",
+      "agent-workspace/apps/web/src/lib/api.test.ts",
+      "agent-workspace/apps/web/src/app.test.tsx"
+    ],
+    "T-03": [
+      "agent-workspace/.github/workflows/ci.yml",
+      "agent-workspace/README.md",
+      "agent-workspace/apps/api/test/ci-workflow.test.ts"
+    ]
+  },
+  "test_files_changed_during_fixes": [],
+  "trigger_reasons": [
+    {
+      "evidence": [
+        "ApiStatus defined in apps/web/src/components/api-status.tsx, referenced from apps/web/src/app.test.tsx outside the owning task's file set",
+        "apiBaseUrl defined in apps/web/src/lib/api.ts, referenced from apps/web/src/lib/api.test.ts outside the owning task's file set",
+        "buildApp defined in apps/api/src/app.ts, referenced from apps/api/src/server.ts outside the owning task's file set",
+        "fetchHealth defined in apps/web/src/lib/api.ts, referenced from apps/web/src/components/api-status.tsx outside the owning task's file set",
+        "mockFetch defined in apps/web/src/app.test.tsx, referenced from apps/web/src/lib/api.test.ts outside the owning task's file set",
+        "track defined in apps/api/test/health.test.ts, referenced from apps/api/test/ci-workflow.test.ts outside the owning task's file set"
+      ],
+      "type": "shared_code_changed"
+    },
+    {
+      "evidence": [
+        "T-01 and T-02 are connected via depends_on and both touch files under ['agent-workspace']",
+        "T-01 and T-03 are connected via depends_on and both touch files under ['agent-workspace', 'agent-workspace/apps/api/test']",
+        "T-02 and T-03 are connected via depends_on and both touch files under ['agent-workspace']"
+      ],
+      "type": "cross_task_lifecycle"
+    },
+    {
+      "evidence": [
+        "cleanup: apps/web/src/app.test.tsx"
+      ],
+      "type": "high_risk_area_changed"
+    },
+    {
+      "evidence": [
+        "cumulative_diff_lines 11078 >= diff_lines_threshold 500"
+      ],
+      "type": "cumulative_diff_lines"
+    }
+  ],
+  "truncated_files": []
+}
