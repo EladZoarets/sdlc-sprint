@@ -1,0 +1,2 @@
+INVESTIGATION_BUNDLE: /Users/eladzoarets/.cache/sdlc/sprint-worktrees/sdlc-sprint-TXT-17481560-01-bootstrap-agent-workspace-application-051da96b/worktree/features/TXT-17481560-01-bootstrap-agent-workspace-application/final-integration-review/investigations/IR-Q01
+RESPONSE_PATH: /Users/eladzoarets/.cache/sdlc/sprint-worktrees/sdlc-sprint-TXT-17481560-01-bootstrap-agent-workspace-application-051da96b/worktree/features/TXT-17481560-01-bootstrap-agent-workspace-application/final-integration-review/investigations/IR-Q01/response.json

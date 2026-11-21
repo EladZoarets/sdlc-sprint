@@ -1,0 +1,11 @@
+{
+  "status": "insufficient_evidence",
+  "explanation": "The investigation bundle contains only question.md. Its section 'Named files that could not be copied into this bundle' (question.md:23-27) lists all three named files: agent-workspace/apps/web/tsconfig.app.json, agent-workspace/apps/web/tsconfig.json and agent-workspace/apps/web/src/app.test.tsx. Without them I cannot check whether tsconfig.app.json sets or inherits resolveJsonModule, which moduleResolution or module value applies, whether tsconfig.json references a project that includes src/app.test.tsx, or whether app.test.tsx is excluded from the typecheck. I also cannot see the exact import forms used for webPackage and apiPackage. The default value of resolveJsonModule in TypeScript 7.0.2 cannot be settled from the bundle either: question.md:21 says it needs the compiler to run, and nothing in the bundle records a tsc -b run. Separately, importing ../../api/package.json reaches outside the composite project's include: [\"src\"], so the TS6307 'not listed within the file list of project' check could also apply under tsc -b. That can only be checked with the tsconfig contents.",
+  "missing_context": [
+    {"file": "agent-workspace/apps/web/tsconfig.app.json", "symbol": "resolveJsonModule", "reason": "Shows whether resolveJsonModule, composite, moduleResolution, module, include and exclude are set, which decides whether the JSON imports type-check under tsc -b."},
+    {"file": "agent-workspace/apps/web/tsconfig.json", "symbol": "references", "reason": "Shows which project references tsc -b builds and whether any shared base config supplies resolveJsonModule."},
+    {"file": "agent-workspace/apps/web/src/app.test.tsx", "symbol": "webPackage, apiPackage", "reason": "Shows the exact import statements and paths for the JSON files, and whether the file is actually in the typechecked project."},
+    {"file": "agent-workspace/apps/web/package.json", "symbol": "scripts.typecheck, scripts.build, devDependencies.typescript", "reason": "Confirms the typecheck and build commands and the TypeScript version that is actually installed."},
+    {"file": "<CI or validation log>", "symbol": "tsc -b output", "reason": "The output of an actual npm run typecheck or build run is the only way to settle TS 7.0.2's default JSON module behavior without guessing."}
+  ]
+}

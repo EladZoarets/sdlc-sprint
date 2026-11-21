@@ -1,0 +1,40 @@
+{
+  "required": true,
+  "mode": "auto",
+  "triggers": [
+    {
+      "type": "shared_code_changed",
+      "evidence": [
+        "ApiStatus defined in apps/web/src/components/api-status.tsx, referenced from apps/web/src/app.test.tsx outside the owning task's file set",
+        "apiBaseUrl defined in apps/web/src/lib/api.ts, referenced from apps/web/src/lib/api.test.ts outside the owning task's file set",
+        "buildApp defined in apps/api/src/app.ts, referenced from apps/api/src/server.ts outside the owning task's file set",
+        "fetchHealth defined in apps/web/src/lib/api.ts, referenced from apps/web/src/components/api-status.tsx outside the owning task's file set",
+        "mockFetch defined in apps/web/src/app.test.tsx, referenced from apps/web/src/lib/api.test.ts outside the owning task's file set",
+        "track defined in apps/api/test/health.test.ts, referenced from apps/api/test/ci-workflow.test.ts outside the owning task's file set"
+      ]
+    },
+    {
+      "type": "cross_task_lifecycle",
+      "evidence": [
+        "T-01 and T-02 are connected via depends_on and both touch files under ['agent-workspace']",
+        "T-01 and T-03 are connected via depends_on and both touch files under ['agent-workspace', 'agent-workspace/apps/api/test']",
+        "T-02 and T-03 are connected via depends_on and both touch files under ['agent-workspace']"
+      ]
+    },
+    {
+      "type": "high_risk_area_changed",
+      "evidence": [
+        "cleanup: apps/web/src/app.test.tsx"
+      ]
+    },
+    {
+      "type": "cumulative_diff_lines",
+      "evidence": [
+        "cumulative_diff_lines 11078 >= diff_lines_threshold 500"
+      ]
+    }
+  ],
+  "cumulative_diff_lines": 11078,
+  "review_fix_count": 0,
+  "chaos_fix_count": 0
+}

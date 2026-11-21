@@ -1,0 +1,12 @@
+{
+  "risk_hint": "Resource cleanup/disposal semantics changed. Inspect unchanged callers and lifecycle paths for ownership, reentrancy, lock scope, retry, and cleanup assumptions. Follow specific symbols into the service repository when necessary.",
+  "triggered_categories": [
+    "cleanup"
+  ],
+  "bundle_bytes": 357505,
+  "candidate_count": 6,
+  "out_of_bundle_reads": [
+    "agent-workspace/apps/web/tsconfig.app.json",
+    "agent-workspace/node_modules/typescript/package.json"
+  ]
+}
